@@ -4,6 +4,21 @@ angular.module('urna', [
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
+  var checkLoggedin = function($q, $http, $location){
+    var deferred = $q.defer();
+
+    $http.get('/api/loggedin').success(function(user){
+      if (user !== '0'){
+        deferred.resolve();
+      } else {
+        deferred.reject();
+        $location.url('/login');
+      }
+    });
+
+    return deferred.promise;
+  };
+
   $routeProvider
     .when('/', {
       templateUrl: 'login.html',
@@ -15,29 +30,10 @@ angular.module('urna', [
     })
     .when('/users', {
       templateUrl: 'users.html',
-      controller: 'UserController'
+      controller: 'UserController',
+      resolve: { loggedin: checkLoggedin }
+    })
+    .otherwise({
+      redirectTo: '/login'
     });
-
-    $httpProvider.interceptors.push('AttachTokens');
-})
-.factory('AttachTokens', function ($window) {
-  // var attach = {
-  //   request: function (object) {
-  //     var jwt = $window.localStorage.getItem('com.shortly');
-  //     if (jwt) {
-  //       object.headers['x-access-token'] = jwt;
-  //     }
-  //     object.headers['Allow-Control-Allow-Origin'] = '*';
-  //     return object;
-  //   }
-  // };
-  // return attach;
-  return {};
-})
-.run(function ($rootScope, $location, Auth) {
-  // $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-  //   if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
-  //     $location.path('/signin');
-  //   }
-  // });
 });

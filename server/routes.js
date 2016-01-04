@@ -23,11 +23,15 @@ module.exports = function (app, express) {
   );
 
   app.get('/api/auth/linkedin/callback',
-    passport.authenticate('linkedin', { failureRedirect: '/login' }),
+    passport.authenticate('linkedin', { failureRedirect: '/#/login' }),
     function(req, res) {
       res.redirect('/#/users');
     }
   );
+
+  app.get('/api/loggedin', function(req, res) {
+    res.send(req.isAuthenticated() ? req.user : '0');
+  });
 
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
