@@ -8,8 +8,6 @@ var UserSchema = new mongoose.Schema({
     unique: true
   },
   name: String,
-  role: String,
-  company: String,
   email: String,
   picture: String,
   publicProfileUrl: String,

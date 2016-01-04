@@ -1,15 +1,26 @@
-<div class="profile">
+<div class="profilecontainer">
+
+  <div class="profile">
+    <p>{{user.name}}</p>
+    <p>{{user.headline}}</p>
+    <img src="{{user.picture}}">
+  </div>
 
   <div class="interests">
     <h2>what are your interests?</h2>
     <form name="interestsForm" ng-submit='saveInterests()' novalidate>
       <input type='text' name='int1' ng-model='user.interests[0]' required ng-class="{'error': interestsForm.$invalid && interestsForm.$dirty}">
       <input type='text' name='int2' ng-model='user.interests[1]'>
-      <input type='text' name='int3' ng-model='user.interests[2]'>
+      <input type='text' name='int3' ng-model='user.interests[2]'><br>
       <button type="submit" ng-disabled='interestsForm.$invalid'>
-        save
+        save interests
       </button>
     </form>
+  </div>
+
+  <div>
+    <a href="">People Interested in me</a><br>
+    <a href="">Start urna</a>
   </div>
 
 </div>
