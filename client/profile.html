@@ -1,0 +1,15 @@
+<div class="profile">
+
+  <div class="interests">
+    <h2>what are your interests?</h2>
+    <form name="interestsForm" ng-submit='saveInterests()' novalidate>
+      <input type='text' name='int1' ng-model='user.interests[0]' required ng-class="{'error': interestsForm.$invalid && interestsForm.$dirty}">
+      <input type='text' name='int2' ng-model='user.interests[1]'>
+      <input type='text' name='int3' ng-model='user.interests[2]'>
+      <button type="submit" ng-disabled='interestsForm.$invalid'>
+        save
+      </button>
+    </form>
+  </div>
+
+</div>

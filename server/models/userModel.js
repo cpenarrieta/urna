@@ -16,7 +16,10 @@ var UserSchema = new mongoose.Schema({
   headline: String,
   summary: String,
   location: String,
-  interests: [{ type: String }],
+  interests: [{
+    type: String,
+    default: ['','','']
+  }],
   peopleInterested: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   peopleNotInterested: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });

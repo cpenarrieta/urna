@@ -29,4 +29,23 @@ module.exports = {
   create: function(user){
     return createUser(user);
   },
+
+  addInterests: function(req, res, next){
+    var userId = req.body.id;
+    var interests = req.body.interests;
+
+    findUser({ _id : userId })
+      .then(function(user){
+        if (user){
+          user.interests = interests;
+          user.save();
+          return res.sendStatus(200);
+        } else {
+          return res.sendStatus(400);
+        }
+      })
+      .fail(function (error) {
+        next(error);
+      });
+  }
 };

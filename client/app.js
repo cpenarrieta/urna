@@ -4,11 +4,12 @@ angular.module('urna', [
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
-  var checkLoggedin = function($q, $http, $location){
+  var checkLoggedin = function($q, $http, $location, $rootScope){
     var deferred = $q.defer();
 
     $http.get('/api/loggedin').success(function(user){
       if (user !== '0'){
+        $rootScope.user = user;
         deferred.resolve();
       } else {
         deferred.reject();
@@ -28,8 +29,8 @@ angular.module('urna', [
       templateUrl: 'login.html',
       controller: 'UserController'
     })
-    .when('/users', {
-      templateUrl: 'users.html',
+    .when('/profile', {
+      templateUrl: 'profile.html',
       controller: 'UserController',
       resolve: { loggedin: checkLoggedin }
     })

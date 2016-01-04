@@ -4,7 +4,7 @@ var passport = require('./passportConf');
 
 var isAuthenticated = function(req, res, next){
   if (!req.isAuthenticated())
-    res.send(401);
+    res.sendStatus(401);
   else
     next();
 };
@@ -15,6 +15,7 @@ module.exports = function (app, express) {
   });
 
   app.get('/api/users/', userController.getUsers);
+  app.post('/api/user/interests', userController.addInterests);
 
   app.get('/api/auth/linkedin',
     passport.authenticate('linkedin', { state: 'SOME STATE' }),
@@ -25,7 +26,7 @@ module.exports = function (app, express) {
   app.get('/api/auth/linkedin/callback',
     passport.authenticate('linkedin', { failureRedirect: '/#/login' }),
     function(req, res) {
-      res.redirect('/#/users');
+      res.redirect('/#/profile');
     }
   );
 

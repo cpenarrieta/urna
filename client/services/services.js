@@ -1,25 +1,15 @@
 angular.module('urna.services', [])
-.factory('Auth', function ($http, $location, $window) {
-  var signin = function () {
-
-  };
-
-  var signup = function () {
-
-  };
-
-  var isAuth = function () {
-
-  };
-
-  var signout = function () {
-
+.factory('Users', function ($http, $location, $window) {
+  
+  var saveInterests = function (interests) {
+    return $http({
+      method: 'POST',
+      url: '/api/user/interests',
+      data: interests
+    });
   };
 
   return {
-    signin: signin,
-    signup: signup,
-    isAuth: isAuth,
-    signout: signout
+    saveInterests: saveInterests,
   };
 });
