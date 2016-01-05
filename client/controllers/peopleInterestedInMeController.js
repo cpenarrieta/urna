@@ -18,5 +18,9 @@ angular.module('urna.peopleInterestedInMe', [])
     $scope.data.usersInterestedInMe.splice(index, 1);
   };
 
+  $scope.emptyOrNull = function(item){
+    return !(item === null || item.trim().length === 0);
+  };
+
   initializePeopleInterestedInMe();
 });

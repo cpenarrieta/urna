@@ -38,4 +38,8 @@ angular.module('urna.peopleWithSharedInterests', [])
         console.log('error from PeopleWithSharedInterestsController.imNotInterestInYou',error);
       });
   };
+
+  $scope.emptyOrNull = function(item){
+    return !(item === null || item.trim().length === 0);
+  };
 });

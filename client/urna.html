@@ -5,7 +5,12 @@
     {{user.headline}}<br>
     <a href="{{user.publicProfileUrl}}">LinkedIn Profile</a><br>
     {{user.location}}<br>
-    {{user.interests}}
+  </p>
+  <p>
+    Interests:
+    <ul>
+        <li ng-repeat="interest in user.interests | filter:emptyOrNull">{{interest}}</li>
+    </ul>
   </p>
   <p>
     {{user.summary}}
