@@ -16,11 +16,9 @@ passport.use(new LinkedInStrategy({
     clientSecret: contants.LINKEDIN_CLIENT_SECRET,
     callbackURL:  "http://127.0.0.1:8000/api/auth/linkedin/callback",
     scope:        [ 'r_basicprofile', 'r_emailaddress'],
-    passReqToCallback: true
+    state: true
   },
   function(req, accessToken, refreshToken, profile, done) {
-    req.session.accessToken = accessToken;
-    
     process.nextTick(function () {
       userController
         .findByLinkedInId(profile.id)

@@ -18,8 +18,8 @@ var UserSchema = new mongoose.Schema({
     type: String,
     default: ['','','']
   }],
-  peopleInterested: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  peopleNotInterested: [{type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  peopleInterested: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  peopleNotInterested: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 module.exports = mongoose.model('users', UserSchema);

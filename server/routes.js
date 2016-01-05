@@ -10,15 +10,18 @@ var isAuthenticated = function(req, res, next){
 };
 
 module.exports = function (app, express) {
+  app.get('/api/testdata', userController.insertTestData);
+
   app.get('/api/keepalive', function(req, res){
     res.status(200).json({message: "all ok from the server"});
   });
 
   app.get('/api/users/', userController.getUsers);
   app.post('/api/user/interests', userController.addInterests);
+  app.post('/api/users/interestedInMe', userController.interestedInMe);
 
   app.get('/api/auth/linkedin',
-    passport.authenticate('linkedin', { state: 'SOME STATE' }),
+    passport.authenticate('linkedin'),
     function(req, res){
     }
   );
@@ -32,6 +35,11 @@ module.exports = function (app, express) {
 
   app.get('/api/loggedin', function(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
+  });
+
+  app.get('/api/logout', function(req, res){
+    req.logout();
+    res.redirect('/#/login');
   });
 
   app.use(helpers.errorLogger);
