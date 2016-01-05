@@ -20,8 +20,20 @@ angular.module('urna.services', [])
     });
   };
 
+  var peopleWithSharedInterests = function(interests){
+    return $http({
+      method: 'POST',
+      url: '/api/users/sharedInterests',
+      data: interests
+    })
+    .then(function (usersWithSharedInterests) {
+      return usersWithSharedInterests.data;
+    });
+  };
+
   return {
     saveInterests: saveInterests,
-    interestedInMe: interestedInMe
+    interestedInMe: interestedInMe,
+    peopleWithSharedInterests: peopleWithSharedInterests
   };
 });

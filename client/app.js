@@ -1,6 +1,7 @@
 angular.module('urna', [
   'urna.users',
-  'urna.peopleInterestedInMe',
+  'urna.peopleInterestedInMe',,
+  'urna.peopleWithSharedInterests',
   'urna.services',
   'ngRoute'
 ])
@@ -38,6 +39,11 @@ angular.module('urna', [
     .when('/interestedInMe', {
       templateUrl: 'interestedInMe.html',
       controller: 'PeopleInterestedInMeController',
+      resolve: { loggedin: checkLoggedin }
+    })
+    .when('/urna', {
+      templateUrl: 'urna.html',
+      controller: 'PeopleWithSharedInterestsController',
       resolve: { loggedin: checkLoggedin }
     })
     .otherwise({

@@ -65,6 +65,33 @@ module.exports = {
     });
   },
 
+  sharedInterests: function(req, res, next){
+    var userId = req.body.id;
+    var interests = req.body.interests;
+
+    if (!userId || !interests){
+      res.sendStatus(400);
+    }
+
+    var orCondition = [];
+    for (var i=0; i<interests.length; i++){
+      if (interests[i] && interests[i] !== ""){
+        orCondition.push({ interests: interests[i]});
+      }
+    }
+
+    findAll({
+      _id: { $ne: userId },
+      $or: orCondition
+    })
+    .then(function(usersWithSharedInterests){
+      res.status(200).json(usersWithSharedInterests);
+    })
+    .fail(function(error){
+      next(error);
+    });
+  },
+
   insertTestData: function(req, res, next){
     var myUser = findUser({ _id: "568b37fc7fe4236f47cf2bb5"})
       .then(function(user){
