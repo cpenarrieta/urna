@@ -21,6 +21,7 @@ module.exports = function (app, express) {
   app.post('/api/users/interestedInMe', userController.interestedInMe);
   app.post('/api/users/sharedInterests', userController.sharedInterests);
   app.post('/api/users/imInterestInYou', userController.imInterestInYou);
+  app.post('/api/users/imNotInterestInYou', userController.imNotInterestInYou);
 
   app.get('/api/auth/linkedin',
     passport.authenticate('linkedin'),

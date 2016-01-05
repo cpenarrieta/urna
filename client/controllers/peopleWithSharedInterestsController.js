@@ -28,5 +28,14 @@ angular.module('urna.peopleWithSharedInterests', [])
   };
 
   $scope.imNotInterestInYou = function(userImNotInterestInId){
+    var request = { id: $rootScope.user._id, userImNotInterestInId: userImNotInterestInId };
+    Users.imNotInterestInYou(request)
+      .then(function(){
+        console.log('imNotInterestInYou done');
+        //TODO remove element from ui
+      })
+      .catch(function (error) {
+        console.log('error from PeopleWithSharedInterestsController.imNotInterestInYou',error);
+      });
   };
 });

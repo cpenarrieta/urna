@@ -39,10 +39,19 @@ angular.module('urna.services', [])
     });
   };
 
+  var imNotInterestInYou = function(request){
+    return $http({
+      method: 'POST',
+      url: '/api/users/imNotInterestInYou',
+      data: request
+    });
+  };
+
   return {
     saveInterests: saveInterests,
     interestedInMe: interestedInMe,
     peopleWithSharedInterests: peopleWithSharedInterests,
-    imInterestInYou: imInterestInYou
+    imInterestInYou: imInterestInYou,
+    imNotInterestInYou: imNotInterestInYou
   };
 });

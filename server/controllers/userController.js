@@ -120,6 +120,34 @@ module.exports = {
       });
   },
 
+  imNotInterestInYou: function(req, res, next){
+    var userId = req.body.id;
+    var userImNotInterestInId = req.body.userImNotInterestInId;
+    var myUser;
+
+    findUser({ _id: userId })
+      .then(function(user){
+        if (user){
+          myUser = user;
+          return findUser({ _id: userImNotInterestInId });
+        } else {
+          res.sendStatus(400);
+        }
+      })
+      .then(function (userImNotInterestIn){
+        if (userImNotInterestIn){
+          myUser.peopleNotInterested.push(userImNotInterestIn);
+          myUser.save();
+          res.sendStatus(200);
+        } else {
+          res.sendStatus(400);
+        }
+      })
+      .fail(function (error) {
+        next(error);
+      });
+  },
+
   insertTestData: function(req, res, next){
     var myUser = findUser({ _id: "568b37fc7fe4236f47cf2bb5"})
       .then(function(user){
