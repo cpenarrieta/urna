@@ -1,10 +1,12 @@
 <h2>People interested in you</h2>
 <div class="interestedInMeBox" ng-repeat="user in data.usersInterestedInMe">
-  <p>{{user.name}}</p>
-  <p>{{user.headline}}</p>
-  <a href="{{user.publicProfileUrl}}">LinkedIn Profile</a>
-  <p>{{user.location}}</p>
-  <p>{{user.interests}}</p>
+  <p>
+    <strong>{{user.name}}</strong><br>
+    {{user.headline}}<br>
+    <a href="{{user.publicProfileUrl}}">LinkedIn Profile</a><br>
+    {{user.location}}<br>
+    {{user.interests}}
+  </p>
   <img src="{{user.picture}}"><br>
   <a href="">agree</a><br>
   <a href="">reject</a>

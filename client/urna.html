@@ -1,10 +1,13 @@
 <h2>People with shared Interests</h2>
 <div class="interestedInMeBox" ng-repeat="user in data.usersWithSharedInterests">
-  <p>{{user.name}}</p>
-  <p>{{user.headline}}</p>
-  <a href="{{user.publicProfileUrl}}">LinkedIn Profile</a>
-  <p>{{user.location}}</p>
-  <p>{{user.interests}}</p>
+  <p>
+    <strong>{{user.name}}</strong><br>
+    {{user.headline}}<br>
+    <a href="{{user.publicProfileUrl}}">LinkedIn Profile</a><br>
+    {{user.location}}<br>
+    {{user.interests}}
+  </p>
+
   <img src="{{user.picture}}"><br>
   <a href="">I would like to pair with you</a><br>
   <a href="">I dont want to see you again</a>
