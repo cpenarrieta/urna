@@ -1,0 +1,11 @@
+<div class="interestedInMeBox" ng-repeat="user in data.usersInterestedInMe">
+  <p>{{user.name}}</p>
+  <p>{{user.headline}}</p>
+  <a href="{{user.publicProfileUrl}}">LinkedIn Profile</a>
+  <p>{{user.location}}</p>
+  <p>{{user.interests}}</p>
+  <img src="{{user.picture}}"><br>
+  <a href="">agree</a><br>
+  <a href="">reject</a>
+  <hr>
+</div>

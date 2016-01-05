@@ -1,5 +1,7 @@
 angular.module('urna.users', [])
 .controller('UserController', function ($scope, $window, $location, $rootScope, Users) {
+  $scope.data = {};
+
   $scope.saveInterests = function () {
     var interests = { id: $rootScope.user._id, interests: $rootScope.user.interests };
     Users.saveInterests(interests)

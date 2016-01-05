@@ -17,7 +17,7 @@ module.exports = function (app, express) {
   });
 
   app.get('/api/users/', userController.getUsers);
-  app.post('/api/user/interests', userController.addInterests);
+  app.post('/api/users/interests', userController.addInterests);
   app.post('/api/users/interestedInMe', userController.interestedInMe);
 
   app.get('/api/auth/linkedin',
