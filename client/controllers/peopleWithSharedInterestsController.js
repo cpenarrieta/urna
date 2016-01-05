@@ -3,15 +3,30 @@ angular.module('urna.peopleWithSharedInterests', [])
   $scope.data = {};
 
   var initializeUsersWithSharedInterests = function() {
-    var interests = { id: $rootScope.user._id, interests: $rootScope.user.interests };
-    Users.peopleWithSharedInterests(interests)
+    var request = { id: $rootScope.user._id, interests: $rootScope.user.interests };
+    Users.peopleWithSharedInterests(request)
       .then(function(usersWithSharedInterests){
         $scope.data.usersWithSharedInterests = usersWithSharedInterests;
       })
       .catch(function (error) {
-        console.log('error from UserController.initializeUsersWithSharedInterests',error);
+        console.log('error from PeopleWithSharedInterestsController.initializeUsersWithSharedInterests',error);
       });
   };
 
   initializeUsersWithSharedInterests();
+
+  $scope.imInterestInYou = function(userImInterestInId){
+    var request = { id: $rootScope.user._id, userImInterestInId: userImInterestInId };
+    Users.imInterestInYou(request)
+      .then(function(){
+        console.log('imInterestInYou done');
+        //TODO show message saying we will notify you once agreement
+      })
+      .catch(function (error) {
+        console.log('error from PeopleWithSharedInterestsController.imInterestInYou',error);
+      });
+  };
+
+  $scope.imNotInterestInYou = function(userImNotInterestInId){
+  };
 });

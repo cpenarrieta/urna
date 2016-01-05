@@ -92,6 +92,34 @@ module.exports = {
     });
   },
 
+  imInterestInYou: function(req, res, next){
+    var userId = req.body.id;
+    var userImInterestInId = req.body.userImInterestInId;
+    var myUser;
+
+    findUser({ _id: userId })
+      .then(function(user){
+        if (user){
+          myUser = user;
+          return findUser({ _id: userImInterestInId });
+        } else {
+          res.sendStatus(400);
+        }
+      })
+      .then(function (userImInterestIn){
+        if (userImInterestIn){
+          myUser.peopleInterested.push(userImInterestIn);
+          myUser.save();
+          res.sendStatus(200);
+        } else {
+          res.sendStatus(400);
+        }
+      })
+      .fail(function (error) {
+        next(error);
+      });
+  },
+
   insertTestData: function(req, res, next){
     var myUser = findUser({ _id: "568b37fc7fe4236f47cf2bb5"})
       .then(function(user){

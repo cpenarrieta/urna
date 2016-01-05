@@ -9,7 +9,7 @@ angular.module('urna.peopleInterestedInMe', [])
         $scope.data.usersInterestedInMe = usersInterestedInMe;
       })
       .catch(function (error) {
-        console.log('error from UserController.initializePeopleInterestedInMe',error);
+        console.log('error from PeopleInterestedInMeController.initializePeopleInterestedInMe',error);
       });
   };
 
