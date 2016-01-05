@@ -1,0 +1,6 @@
+<h2>Chat</h2>
+<input type='text' name='chatInput' ng-model='newChat'>
+<button ng-click="addChat()">Submit</button>
+<ul>
+  <li ng-repeat="chat in chats track by $index">{{ chat }}</li>
+</ul>

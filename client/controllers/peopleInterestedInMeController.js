@@ -13,5 +13,10 @@ angular.module('urna.peopleInterestedInMe', [])
       });
   };
 
+  $scope.remove = function(index){
+    //TODO update database here to not show this person again
+    $scope.data.usersInterestedInMe.splice(index, 1);
+  };
+
   initializePeopleInterestedInMe();
 });

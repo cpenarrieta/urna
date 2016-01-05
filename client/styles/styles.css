@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.header{
+  height:30px;
+}
+.Content{
+  height: 100%; 
+  overflow: auto;
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+.Footer{
+  position: relative;
+  margin-top: -30px; /* negative value of footer height */
+  height: 30px;
+  clear:both;
+}

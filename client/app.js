@@ -1,5 +1,6 @@
 angular.module('urna', [
   'urna.users',
+  'urna.chat',
   'urna.peopleInterestedInMe',,
   'urna.peopleWithSharedInterests',
   'urna.services',
@@ -44,6 +45,11 @@ angular.module('urna', [
     .when('/urna', {
       templateUrl: 'urna.html',
       controller: 'PeopleWithSharedInterestsController',
+      resolve: { loggedin: checkLoggedin }
+    })
+    .when('/chat', {
+      templateUrl: 'chat.html',
+      controller: 'ChatController',
       resolve: { loggedin: checkLoggedin }
     })
     .otherwise({

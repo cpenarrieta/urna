@@ -1,17 +1,28 @@
 <html ng-app='urna'>
 <head>
   <title>urna</title>
+  <link rel="stylesheet" href="styles/styles.css"/>
 </head>
 <body>
-  <h1><a href="#/profile" class="mainTitle" >urna</a></h1>
 
-  <div ng-view>
+  <div class="Header">
+    <h1><a href="#/profile" class="mainTitle" >urna</a></h1>
+  </div>
+  <div class="Content">
+    <div ng-view>
+      
+    </div>
+  </div>
+  <div class="Footer">
     
   </div>
+  
+
 
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular-route/angular-route.js"></script>
   <script src="controllers/users.js"></script>
+  <script src="controllers/chatController.js"></script>
   <script src="controllers/peopleInterestedInMeController.js"></script>
   <script src="controllers/peopleWithSharedInterestsController.js"></script>
   <script src="services/services.js"></script>
