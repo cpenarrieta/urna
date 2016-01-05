@@ -24,6 +24,14 @@ passport.use(new LinkedInStrategy({
         .findByLinkedInId(profile.id)
         .then(function(user){
           if (user){
+            user.email = profile._json.emailAddress;
+            user.name = profile.displayName;
+            user.picture = profile._json.pictureUrl;
+            user.publicProfileUrl = profile._json.publicProfileUrl;
+            user.headline = profile._json.headline;
+            user.summary = profile._json.summary;
+            user.location = profile._json.location.name;
+            user.save();
             return done(null, user);
           } else {
             userController.create({
