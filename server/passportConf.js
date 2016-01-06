@@ -14,7 +14,7 @@ passport.deserializeUser(function(user, done) {
 passport.use(new LinkedInStrategy({
     clientID:     contants.LINKEDIN_CLIENT_ID,
     clientSecret: contants.LINKEDIN_CLIENT_SECRET,
-    callbackURL:  "http://127.0.0.1:8000/api/auth/linkedin/callback",
+    callbackURL:  contants.API_URL + "/api/auth/linkedin/callback",
     scope:        [ 'r_basicprofile', 'r_emailaddress'],
     state: true
   },
