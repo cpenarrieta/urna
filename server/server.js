@@ -1,9 +1,10 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var constants = require('./../constants');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/urna');
+mongoose.connect(constants.MONGOLAB_URI);
 
 require('./middleware.js')(app, express);
 require('./routes.js')(app, express);
