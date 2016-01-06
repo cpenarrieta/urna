@@ -4,7 +4,8 @@
   "description": "online community to take online courses in pairs",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "postinstall": "bower install"
   },
   "author": "Cristian Penarrieta",
   "repository": {
