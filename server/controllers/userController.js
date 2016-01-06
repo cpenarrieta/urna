@@ -149,7 +149,7 @@ module.exports = {
   },
 
   insertTestData: function(req, res, next){
-    var myUser = findUser({ _id: "568b37fc7fe4236f47cf2bb5"})
+    var myUser = findUser({ _id: "568c6e69e304a70300dcb55d"})
       .then(function(user){
         createUser({
           linkedinId: "1",
