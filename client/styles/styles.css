@@ -1,22 +1,49 @@
 body {
-  margin: 0;
-  margin-top: 10px;
-  margin-left: 10px;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .header{
-  height:30px;
+  height:80px;
+  text-align: center;
+  background-color: #6E5785;
+  padding-top: 5px;
+  color: white;
 }
+
 .Content{
   height: 100%; 
   overflow: auto;
   padding-top: 10px;
-  padding-bottom: 40px;
+  padding-left: 10px;
+  /*background-color: #8F8DAA;*/
 }
+
 .Footer{
   position: relative;
-  margin-top: -30px; /* negative value of footer height */
+  margin-top: -30px;
   height: 30px;
   clear:both;
 }
+
+a {
+  color: #0060B6;
+  text-decoration: none;
+}
+
+a:hover {
+  color:#00A0C6; 
+  text-decoration:none; 
+  cursor:pointer;  
+}
+
+.mainTitle {
+  color: white;
+}
+/*
+p,ul {
+  color: white;
+}
+
+strong {
+  color: black;
+}*/
