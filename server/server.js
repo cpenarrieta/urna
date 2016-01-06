@@ -10,7 +10,7 @@ require('./middleware.js')(app, express);
 require('./routes.js')(app, express);
 
 app.listen((process.env.PORT || 8000), function () {
-  console.log('App listening on port', (process.env.PORT || 8000));
+  console.log('App listening on port', (process.env.PORT || 8000), constants.API_URL);
 });
 
 module.exports = app;
