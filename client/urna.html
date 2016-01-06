@@ -9,7 +9,8 @@
   <p>
     Interests:
     <ul>
-        <li ng-repeat="interest in user.interests | filter:emptyOrNull">{{interest}}</li>
+        <li ng-repeat="interest in user.interests | filter:emptyOrNull"
+            ng-class="{ 'matched': isMatched(interest) }" >{{interest}}</li>
     </ul>
   </p>
   <p>

@@ -42,4 +42,11 @@ angular.module('urna.peopleWithSharedInterests', [])
   $scope.emptyOrNull = function(item){
     return !(item === null || item.trim().length === 0);
   };
+
+  $scope.isMatched = function(interest){
+    if ($rootScope.user.interests.indexOf(interest) === -1){
+      return false;
+    }
+    return true;
+  };
 });
