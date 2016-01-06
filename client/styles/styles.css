@@ -39,11 +39,7 @@ a:hover {
 .mainTitle {
   color: white;
 }
-/*
-p,ul {
-  color: white;
-}
 
-strong {
-  color: black;
-}*/
+.btn-login {
+  width: 40%;
+}
