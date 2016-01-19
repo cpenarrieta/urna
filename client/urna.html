@@ -17,7 +17,7 @@
     {{user.summary}}
   </p>
 
-  <img src="{{user.picture}}"><br>
+  <img ng-src="{{user.picture}}"><br>
   <a ng-click="imInterestInYou(user._id)" href="">I would like to pair with you</a><br>
   <a ng-click="imNotInterestInYou(user._id, $index)" href="">I dont want to see you again</a>
   <hr>
