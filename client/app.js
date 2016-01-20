@@ -4,7 +4,8 @@ angular.module('urna', [
   'urna.peopleInterestedInMe',,
   'urna.peopleWithSharedInterests',
   'urna.services',
-  'ngRoute'
+  'ngRoute',
+  'firebase'
 ])
 .config(function ($routeProvider, $httpProvider) {
   var checkLoggedin = function($q, $http, $location, $rootScope){
@@ -47,7 +48,7 @@ angular.module('urna', [
       controller: 'PeopleWithSharedInterestsController',
       resolve: { loggedin: checkLoggedin }
     })
-    .when('/chat', {
+    .when('/chat/:id1/:id2', {
       templateUrl: 'chat.html',
       controller: 'ChatController',
       resolve: { loggedin: checkLoggedin }

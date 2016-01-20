@@ -1,5 +1,6 @@
 angular.module('urna.peopleInterestedInMe', [])
-.controller('PeopleInterestedInMeController', function ($scope, $window, $location, $rootScope, Users) {
+.controller('PeopleInterestedInMeController', function ($scope, $window, $location, $rootScope, Users, $firebaseArray) {
+  var ref = new Firebase("https://urna.firebaseio.com/");
   $scope.data = {};
 
   var initializePeopleInterestedInMe = function() {
@@ -20,6 +21,12 @@ angular.module('urna.peopleInterestedInMe', [])
 
   $scope.emptyOrNull = function(item){
     return !(item === null || item.trim().length === 0);
+  };
+
+  $scope.agree = function(userId){
+    var key = $rootScope.user._id + "-" + userId;
+    ref.child(key).update({ message: "" });
+    $location.path('/chat/' + $rootScope.user._id + "/" + userId);
   };
 
   initializePeopleInterestedInMe();
